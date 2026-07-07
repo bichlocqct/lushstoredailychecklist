@@ -23,9 +23,9 @@ const REPORT_DATA = {
       "store": "Lush Vincom Đồng Khởi",
       "date": "30/06/2026",
       "staff": "5",
-      "vmd": "Good (VM: 43/45)",
+      "vmd": "Good (VM: 44/45)",
       "storeroom": "Good (15/15)",
-      "tester": "Good (14/15)",
+      "tester": "Good (13/15)",
       "stock": "Gap 0",
       "comment": "Vận hành tốt, nhân sự tư vấn nhiệt tình và link sale tốt. Kho đã sạch hơn, cây trang trí được chăm sóc tốt hơn. Cần lau bụi một số kệ, chuẩn hóa tester và bổ sung topping cho FFM."
     },
@@ -843,7 +843,7 @@ const REPORT_DATA = {
       "stock": "Stock"
     },
     "vm": {
-      "total": "43",
+      "total": "44",
       "grade": "Good",
       "items": [
         {
@@ -909,7 +909,7 @@ const REPORT_DATA = {
         {
           "id": 13,
           "question": "Tất cả bảng thông tin và giá sản phẩm cần thiết đã được trưng bày đầy đủ bằng font chữ Lush để đảm bảo truyền đạt thông tin rõ ràng và đầy đủ đến khách hàng chưa?",
-          "score": "2"
+          "score": "3"
         },
         {
           "id": 14,
@@ -955,7 +955,7 @@ const REPORT_DATA = {
       ]
     },
     "tester": {
-      "total": "14",
+      "total": "13",
       "grade": "Good",
       "items": [
         {
@@ -976,7 +976,7 @@ const REPORT_DATA = {
         {
           "id": 4,
           "question": "Tester có được vệ sinh sạch sẽ chưa?",
-          "score": "3"
+          "score": "2"
         },
         {
           "id": 5,

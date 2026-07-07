@@ -796,7 +796,7 @@
         {
           "id": 13,
           "question": "Tất cả bảng thông tin và giá sản phẩm cần thiết đã được trưng bày đầy đủ bằng font chữ Lush để đảm bảo truyền đạt thông tin rõ ràng và đầy đủ đến khách hàng chưa?",
-          "score": "2"
+          "score": "3"
         },
         {
           "id": 14,
@@ -809,7 +809,7 @@
           "score": "3"
         }
       ],
-      "total": "43",
+      "total": "44",
       "grade": "Good"
     },
     "storeroom": {
@@ -863,7 +863,7 @@
         {
           "id": 4,
           "question": "Tester có được vệ sinh sạch sẽ chưa?",
-          "score": "3"
+          "score": "2"
         },
         {
           "id": 5,
@@ -871,7 +871,7 @@
           "score": "2"
         }
       ],
-      "total": "14",
+      "total": "13",
       "grade": "Good"
     },
     "staff": {
