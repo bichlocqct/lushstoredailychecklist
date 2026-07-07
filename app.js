@@ -695,11 +695,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRed = scoreNum < 3;
             const trClass = isRed ? 'class="highlight-red"' : '';
             
+            let imgHtml = '';
+            if (storeKey === 'SGCT' && section === 'vm' && item.id === 2) {
+                imgHtml = `
+                    <div class="static-image-preview no-print" style="margin-top: 8px;">
+                        <img src="sgct_vm_2.png" alt="Minh chứng" class="zoomable-static-img" data-title="Saigon Center [VMD] Câu 2: Khu vực kệ trưng bày bath bomb/bubble bars có sạch sẽ không?" style="max-width: 120px; border: 1px solid var(--color-gray-medium); cursor: pointer; display: block; transition: var(--transition-smooth);">
+                    </div>
+                    <div class="print-images-container only-print" style="margin-top: 6px;">
+                        <div class="print-image-wrap">
+                            <img src="sgct_vm_2.png" alt="Minh chứng">
+                            <span>Ảnh câu 2: Khu vực kệ trưng bày bath bomb/bubble bars</span>
+                        </div>
+                    </div>
+                `;
+            }
+            
             html += `
                 <tr ${trClass}>
                     <td class="text-center" style="font-weight:600;">${item.id}</td>
                     <td style="font-size: 13.5px;">
                         ${item.question}
+                        ${imgHtml}
                     </td>
                     <td class="text-center">
                         <span class="badge ${isRed ? 'badge-poor' : 'badge-good'}">${item.score}/3</span>
@@ -800,6 +816,14 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('click', () => {
                 const input = img.closest('.uploader-container').querySelector('.uploader-input');
                 const title = input.getAttribute('data-title');
+                openLightbox(img.src, title);
+            });
+        });
+
+        // Static Image Lightbox Trigger
+        panel.querySelectorAll('.zoomable-static-img').forEach(img => {
+            img.addEventListener('click', () => {
+                const title = img.getAttribute('data-title') || 'Minh chứng';
                 openLightbox(img.src, title);
             });
         });
