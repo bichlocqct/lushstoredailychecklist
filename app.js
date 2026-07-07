@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <th style="width: 5%; text-align: center;">STT</th>
                                         <th style="width: 60%;">Tiêu Chí Đánh Giá Visual Merchandising</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
-                                        <th class="no-print" style="width: 25%; text-align: center;">Ảnh Minh Chứng (Highlight Đỏ)</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <th style="width: 5%; text-align: center;">STT</th>
                                         <th style="width: 60%;">Tiêu Chí Đánh Giá Kho Hàng</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
-                                        <th class="no-print" style="width: 25%; text-align: center;">Ảnh Minh Chứng (Highlight Đỏ)</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <th style="width: 5%; text-align: center;">STT</th>
                                         <th style="width: 60%;">Tiêu Chí Đánh Giá Tester</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
-                                        <th class="no-print" style="width: 25%; text-align: center;">Ảnh Minh Chứng (Highlight Đỏ)</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -551,7 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                         <th style="width: 5%; text-align: center;">STT</th>
                                         <th style="width: 60%;">Tiêu Chí Đánh Giá Nhân Sự</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
-                                        <th class="no-print" style="width: 25%; text-align: center;">Ảnh Minh Chứng (Highlight Đỏ)</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
