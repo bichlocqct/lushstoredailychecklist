@@ -500,12 +500,12 @@ const REPORT_DATA = {
         {
           "id": 3,
           "question": "Tất cả sản phẩm phải không có bụi, đặc biệt là các sản phẩm không bao bì.",
-          "score": "2"
+          "score": "3"
         },
         {
           "id": 4,
           "question": "Tất cả các kệ trưng bày không có bụi, đặc biệt là các kệ đen",
-          "score": "3"
+          "score": "2"
         },
         {
           "id": 5,
