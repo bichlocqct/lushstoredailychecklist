@@ -23,7 +23,7 @@ const REPORT_DATA = {
       "store": "Lush Vincom Đồng Khởi",
       "date": "30/06/2026",
       "staff": "5",
-      "vmd": "Good (VM: 44/45)",
+      "vmd": "Good (VM: 43/45)",
       "storeroom": "Good (15/15)",
       "tester": "Good (14/15)",
       "stock": "Gap 0",
@@ -843,7 +843,7 @@ const REPORT_DATA = {
       "stock": "Stock"
     },
     "vm": {
-      "total": "44",
+      "total": "43",
       "grade": "Good",
       "items": [
         {
@@ -909,7 +909,7 @@ const REPORT_DATA = {
         {
           "id": 13,
           "question": "Tất cả bảng thông tin và giá sản phẩm cần thiết đã được trưng bày đầy đủ bằng font chữ Lush để đảm bảo truyền đạt thông tin rõ ràng và đầy đủ đến khách hàng chưa?",
-          "score": "3"
+          "score": "2"
         },
         {
           "id": 14,
