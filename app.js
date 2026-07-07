@@ -699,7 +699,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRed = scoreNum < 3;
             const trClass = isRed ? 'class="highlight-red"' : '';
             const storageKey = `lush_img_${activeWeekId}_${storeKey}_${section}_${item.id}`;
-            const savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
+            let savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
+            
+            // Default image fallback if no user-uploaded image is present
+            if (!savedImg && storeKey === 'SGCT' && section === 'vm' && item.id === 2) {
+                savedImg = 'sgct_vm_2.jpg';
+            }
             
             let uploaderHtml = '';
             let printImgHtml = '';

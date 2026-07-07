@@ -792,7 +792,8 @@ p, li, td, th {
 .uploader-preview img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: var(--color-gray-extra-light);
 }
 
 .uploader-delete {
@@ -1159,7 +1160,8 @@ p, li, td, th {
     .print-image-wrap img {
         width: 100%;
         height: 80%;
-        object-fit: cover;
+        object-fit: contain;
+        background-color: var(--color-gray-extra-light);
     }
     
     .print-image-wrap span {
