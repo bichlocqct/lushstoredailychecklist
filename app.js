@@ -1,6 +1,16 @@
 // Application logic for LUSH Retail Operation Store Visit Report
 
 document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // CẤU HÌNH SUPABASE & CLOUDINARY
+    // ==========================================
+    const CLOUDINARY_CLOUD_NAME = 'YOUR_CLOUD_NAME';      // Điền Cloud Name của bạn vào đây
+    const CLOUDINARY_UPLOAD_PRESET = 'YOUR_UPLOAD_PRESET';  // Điền Unsigned Upload Preset của bạn vào đây
+    const SUPABASE_URL = 'https://izuwqsefoxdntjslxfyg.supabase.co'; // Đã điền sẵn URL Supabase của bạn
+    const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY';        // Điền Anon API Key của bạn vào đây
+
+    let dbImages = {}; // Bản đồ lưu trữ tạm thời ảnh tải về từ Supabase
+
     // 1. STATE MANAGEMENT
     let activeWeekId = '2026-W27';
     let activeTabId = 'overall-comments';
@@ -17,9 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxCaption = document.getElementById('lightbox-caption');
 
     // 3. INITIALIZATION
-    function init() {
+    async function init() {
         populateWeekDropdown();
-        loadWeekData(activeWeekId);
+        await loadWeekData(activeWeekId);
         setupEventListeners();
     }
 
@@ -37,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Load data for a specific week
-    function loadWeekData(weekId) {
+    async function loadWeekData(weekId) {
         if (typeof REPORT_DATA === 'undefined' || !REPORT_DATA.weeks[weekId]) {
             console.error(`No data found for week: ${weekId}`);
             return;
@@ -47,6 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Update document title and print metadata
         document.title = `LUSH Report - Tuần ${weekData.name}`;
+        
+        // Load images from Supabase
+        dbImages = await loadImagesFromSupabase(weekId);
         
         // Render sections
         renderOverallComments(weekData.overall, weekData.stores);
@@ -61,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. EVENT LISTENERS
     function setupEventListeners() {
         // Dropdown selection change
-        weekSelect.addEventListener('change', (e) => {
+        weekSelect.addEventListener('change', async (e) => {
             activeWeekId = e.target.value;
-            loadWeekData(activeWeekId);
+            await loadWeekData(activeWeekId);
         });
 
         // Tab Navigation
@@ -293,8 +306,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             uploaderGrid.appendChild(uploadBox);
             
-            // Handle image load if it exists in local storage
-            const savedImg = localStorage.getItem(storageKey);
+            // Handle image load if it exists in Supabase or local storage
+            const savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
             if (savedImg) {
                 const imgEl = uploadBox.querySelector(`#img-${storageKey}`);
                 const prevEl = uploadBox.querySelector(`#prev-${storageKey}`);
@@ -684,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRed = scoreNum < 3;
             const trClass = isRed ? 'class="highlight-red"' : '';
             const storageKey = `lush_img_${activeWeekId}_${storeKey}_${section}_${item.id}`;
-            const savedImg = localStorage.getItem(storageKey);
+            const savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
             
             let uploaderHtml = '';
             let printImgHtml = '';
@@ -850,8 +863,135 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 9. IMAGE UPLOAD & LOCAL STORAGE INTEGRATION WITH CANVAS COMPRESSION
-    function handleImageUpload(inputEl, callback) {
+    // Helper to read file as base64 blob
+    function readFileAsBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result);
+            reader.onerror = (err) => reject(err);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Helper to compress image file to blob
+    function compressImageFile(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    let width = img.width;
+                    let height = img.height;
+                    const maxSize = 800;
+                    
+                    if (width > maxSize || height > maxSize) {
+                        if (width > height) {
+                            height = Math.round((height * maxSize) / width);
+                            width = maxSize;
+                        } else {
+                            width = Math.round((width * maxSize) / height);
+                            height = maxSize;
+                        }
+                    }
+                    
+                    canvas.width = width;
+                    canvas.height = height;
+                    
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            resolve(blob);
+                        } else {
+                            reject(new Error('Canvas compression failed'));
+                        }
+                    }, 'image/jpeg', 0.7);
+                };
+                img.src = event.target.result;
+            };
+            reader.onerror = (err) => reject(err);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Upload blob to Cloudinary via unsigned preset
+    async function uploadToCloudinary(blob) {
+        const formData = new FormData();
+        formData.append('file', blob);
+        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+        const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error('Lỗi tải ảnh lên Cloudinary. Vui lòng kiểm tra lại Cloud Name và Preset.');
+        }
+        const data = await response.json();
+        return data.secure_url;
+    }
+
+    // Save image URL to Supabase
+    async function saveImageToSupabase(weekId, storeKey, section, itemId, imageUrl) {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/store_images`, {
+            method: 'POST',
+            headers: {
+                'apikey': SUPABASE_ANON_KEY,
+                'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                'Content-Type': 'application/json',
+                'Prefer': 'resolution=merge-duplicates'
+            },
+            body: JSON.stringify({
+                week_id: weekId,
+                store_key: storeKey,
+                section: section,
+                item_id: parseInt(itemId),
+                image_url: imageUrl
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Lỗi lưu URL ảnh vào Supabase.');
+        }
+    }
+
+    // Fetch images from Supabase for current week
+    async function loadImagesFromSupabase(weekId) {
+        if (SUPABASE_ANON_KEY === 'YOUR_ANON_KEY') {
+            return {};
+        }
+        try {
+            const response = await fetch(`${SUPABASE_URL}/rest/v1/store_images?week_id=eq.${weekId}`, {
+                method: 'GET',
+                headers: {
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                }
+            });
+
+            if (!response.ok) {
+                console.warn('Không thể kết nối Supabase, sử dụng localStorage.');
+                return {};
+            }
+            
+            const data = await response.json();
+            const imagesMap = {};
+            data.forEach(img => {
+                const key = `lush_img_${img.week_id}_${img.store_key}_${img.section}_${img.item_id}`;
+                imagesMap[key] = img.image_url;
+            });
+            return imagesMap;
+        } catch (e) {
+            console.warn('Lỗi khi tải dữ liệu ảnh từ Supabase:', e);
+            return {};
+        }
+    }
+
+    // 9. IMAGE UPLOAD & LOCAL STORAGE INTEGRATION WITH CANVAS COMPRESSION & CLOUDINARY/SUPABASE
+    async function handleImageUpload(inputEl, callback) {
         const file = inputEl.files[0];
         if (!file) return;
 
@@ -862,56 +1002,84 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            const img = new Image();
-            img.onload = function() {
-                // Setup canvas for resizing and compression
-                const canvas = document.createElement('canvas');
-                let width = img.width;
-                let height = img.height;
+        const storageKey = inputEl.getAttribute('data-key');
+        
+        // Show loading status
+        const uploaderContainer = inputEl.closest('.uploader-container') || inputEl.closest('.overall-upload-box');
+        let originalContent = '';
+        if (uploaderContainer) {
+            originalContent = uploaderContainer.innerHTML;
+            uploaderContainer.innerHTML = '<span style="font-size:10px;color:var(--color-gray-dark);font-weight:600;">LOADING...</span>';
+        }
+
+        try {
+            // 1. Compress image
+            const compressedFile = await compressImageFile(file);
+            
+            // 2. Upload to Cloudinary if configured
+            let imageUrl = '';
+            if (CLOUDINARY_CLOUD_NAME !== 'YOUR_CLOUD_NAME' && CLOUDINARY_UPLOAD_PRESET !== 'YOUR_UPLOAD_PRESET') {
+                imageUrl = await uploadToCloudinary(compressedFile);
+            } else {
+                // Fallback to local Base64
+                const base64Data = await readFileAsBase64(compressedFile);
+                localStorage.setItem(storageKey, base64Data);
+                if (callback) callback();
+                return;
+            }
+            
+            // 3. Save to Supabase if configured
+            if (SUPABASE_ANON_KEY !== 'YOUR_ANON_KEY') {
+                const parts = storageKey.split('_');
+                // Parts: lush, img, 2026-W27, [storeKey or overall], [section or red], itemId
+                const weekId = parts[2];
+                const storeKey = parts[3];
+                const section = parts[4];
+                const itemId = parts[5];
                 
-                // Max dimension limit (800px is perfect for clarity and size)
-                const maxSize = 800;
-                if (width > maxSize || height > maxSize) {
-                    if (width > height) {
-                        height = Math.round((height * maxSize) / width);
-                        width = maxSize;
-                    } else {
-                        width = Math.round((width * maxSize) / height);
-                        height = maxSize;
-                    }
-                }
-                
-                canvas.width = width;
-                canvas.height = height;
-                
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-                
-                // Export as JPEG with 0.7 quality (reduces size by 95%+)
-                const compressedBase64 = canvas.toDataURL('image/jpeg', 0.7);
-                const storageKey = inputEl.getAttribute('data-key');
-                
-                try {
-                    localStorage.setItem(storageKey, compressedBase64);
-                    if (callback) callback();
-                } catch (err) {
-                    console.error("Storage error:", err);
-                    alert('Không thể lưu ảnh! Bộ nhớ trình duyệt localStorage đã đầy. Vui lòng nhấn nút "Xóa Hình Ảnh" để giải phóng dung lượng.');
-                }
-            };
-            img.src = event.target.result;
-        };
-        reader.readAsDataURL(file);
+                await saveImageToSupabase(weekId, storeKey, section, itemId, imageUrl);
+            } else {
+                localStorage.setItem(storageKey, imageUrl);
+            }
+            
+            if (callback) callback();
+        } catch (err) {
+            console.error(err);
+            alert('Lỗi tải ảnh lên: ' + err.message);
+            if (uploaderContainer) {
+                uploaderContainer.innerHTML = originalContent;
+            }
+            await loadWeekData(activeWeekId);
+        }
     }
 
-    function deleteImage(storageKey, callback) {
+    async function deleteImage(storageKey, callback) {
         localStorage.removeItem(storageKey);
+        
+        if (SUPABASE_ANON_KEY !== 'YOUR_ANON_KEY') {
+            try {
+                const parts = storageKey.split('_');
+                const weekId = parts[2];
+                const storeKey = parts[3];
+                const section = parts[4];
+                const itemId = parts[5];
+                
+                await fetch(`${SUPABASE_URL}/rest/v1/store_images?week_id=eq.${weekId}&store_key=eq.${storeKey}&section=eq.${section}&item_id=eq.${itemId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    }
+                });
+            } catch (e) {
+                console.error("Lỗi khi xóa ảnh trên Supabase:", e);
+            }
+        }
+        
         if (callback) callback();
     }
 
-    function clearAllWeekImages() {
+    async function clearAllWeekImages() {
         let count = 0;
         const keys = Object.keys(localStorage);
         keys.forEach(key => {
@@ -920,8 +1088,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 count++;
             }
         });
+        
+        if (SUPABASE_ANON_KEY !== 'YOUR_ANON_KEY') {
+            try {
+                await fetch(`${SUPABASE_URL}/rest/v1/store_images?week_id=eq.${activeWeekId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    }
+                });
+            } catch (e) {
+                console.error("Lỗi khi xóa sạch ảnh trên Supabase:", e);
+            }
+        }
+        
         alert(`Đã xóa sạch thành công ${count} ảnh minh chứng của tuần này.`);
-        loadWeekData(activeWeekId);
+        await loadWeekData(activeWeekId);
     }
 
     // 10. LIGHTBOX VIEW WINDOW HANDLERS
