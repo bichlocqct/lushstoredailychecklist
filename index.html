@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUSH Retail Operation - Báo Cáo Store Visit Tuần</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header no-print">
+        <div class="header-container">
+            <div class="brand">
+                <div class="lush-logo">
+                    <span class="logo-main">LUSH</span>
+                    <div class="logo-sub">
+                        <span class="sub-fresh">FRESH</span>
+                        <span class="sub-handmade">HANDMADE</span>
+                        <span class="sub-cosmetics">COSMETICS</span>
+                    </div>
+                </div>
+                <div class="brand-text">
+                    <h1>RETAIL OPERATION</h1>
+                    <p>Weekly Store Visit Report</p>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="week-selector">
+                    <label for="week-select">Chọn Tuần:</label>
+                    <select id="week-select" class="dropdown">
+                        <!-- Weeks will be dynamically loaded here -->
+                    </select>
+                </div>
+                <div class="action-buttons">
+                    <button id="btn-print" class="btn btn-secondary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                        In / Xuất PDF
+                    </button>
+                    <button id="btn-reset" class="btn btn-danger">
+                        <svg class="btn-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                        Xóa Hình Ảnh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-container no-print">
+        <nav class="app-nav" id="main-navigation">
+            <button class="nav-tab active" data-target="overall-comments">
+                <span>Tổng Quan</span>
+            </button>
+            <button class="nav-tab" data-target="all-reports">
+                <span>Xem Toàn Bộ Báo Cáo</span>
+            </button>
+            <button class="nav-tab" data-target="store-SGCT">
+                <span>Lush Saigon Center</span>
+            </button>
+            <button class="nav-tab" data-target="store-VCDK">
+                <span>Lush Vincom Đồng Khởi</span>
+            </button>
+            <button class="nav-tab" data-target="store-HVP">
+                <span>Lush Hùng Vương Plaza</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Print Title Section (Visible only when printing) -->
+    <div class="print-header only-print">
+        <div class="print-brand">LUSH FRESH HANDMADE COSMETICS</div>
+        <h1 class="print-title">BÁO CÁO ĐÁNH GIÁ RETAIL OPERATION CỬA HÀNG</h1>
+        <div class="print-meta" id="print-meta-info">
+            <!-- Filled dynamically -->
+        </div>
+    </div>
+
+    <main class="app-content container">
+        
+        <!-- SECTION 1: OVERALL COMMENTS -->
+        <section id="tab-overall-comments" class="tab-panel active">
+            <!-- Dashboard Metric Grid -->
+            <div class="dashboard-grid no-print" id="overall-dashboard-grid">
+                <!-- Filled dynamically by JS -->
+            </div>
+
+            <div class="report-section card">
+                <div class="section-header">
+                    <h2>1. Tóm Tắt Điểm Chính / KPI Score Board</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center" id="summary-table">
+                        <thead>
+                            <tr>
+                                <th>Cửa Hàng</th>
+                                <th>Ngày Đánh Giá</th>
+                                <th>Staff on Duty</th>
+                                <th>VMD</th>
+                                <th>Storeroom</th>
+                                <th>Tester</th>
+                                <th>Stock Check</th>
+                                <th class="text-left" style="width: 30%;">Nhận Xét Chính</th>
+                            </tr>
+                        </thead>
+                        <tbody id="summary-table-body">
+                            <!-- Filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="report-section card">
+                <div class="section-header">
+                    <h2>2. Nhận Xét Tổng Quan</h2>
+                </div>
+                <div class="section-body text-block" id="general-observations">
+                    <!-- Filled dynamically -->
+                </div>
+            </div>
+
+            <div class="grid grid-2">
+                <div class="report-section card green-card">
+                    <div class="section-header">
+                        <h2>3. Điểm Tốt / Green Points</h2>
+                    </div>
+                    <ul class="bullet-list green-list" id="green-points-list">
+                        <!-- Filled dynamically -->
+                    </ul>
+                </div>
+
+                <div class="report-section card red-card">
+                    <div class="section-header">
+                        <h2>4. Điểm Cần Cải Thiện / Red Points</h2>
+                    </div>
+                    <div class="red-points-container">
+                        <ul class="bullet-list red-list" id="red-points-list">
+                            <!-- Filled dynamically -->
+                        </ul>
+                        <!-- Image uploader section specifically for Red Points in Comments -->
+                        <div class="red-points-images no-print">
+                            <div class="attachment-title">Đính kèm ảnh minh chứng cải thiện (Tổng quan)</div>
+                            <div class="image-uploader-grid" id="overall-red-uploader">
+                                <!-- Placeholders for pictures -->
+                            </div>
+                        </div>
+                        <!-- Print-only images for Red Points in Comments -->
+                        <div class="print-images-container only-print" id="print-overall-red-images"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-section card">
+                <div class="section-header">
+                    <h2>5. Hành Động Cải Thiện Đề Xuất</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped" id="proposed-actions-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Vấn Đề (Issue)</th>
+                                <th style="width: 15%;">Cửa Hàng Áp Dụng</th>
+                                <th>Hành Động Khuyến Nghị (Recommended Action)</th>
+                                <th style="width: 12%; text-align: center;">Mức Độ Ưu Tiên</th>
+                            </tr>
+                        </thead>
+                        <tbody id="proposed-actions-body">
+                            <!-- Filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="report-section card page-break-after">
+                <div class="section-header">
+                    <h2>6. Trọng Tâm Theo Dõi (Follow-up) Trước Lần Visit Kế Tiếp</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="follow-up-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Cửa Hàng (Store)</th>
+                                <th style="width: 40%;">Trọng Tâm Cần Follow-up</th>
+                                <th>Kết Quả Mong Đợi (Expected Outcome)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="follow-up-body">
+                            <!-- Filled dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: STORE REPORT (TEMPLATE RENDERED DYNAMICALLY) -->
+        <section id="tab-store-SGCT" class="tab-panel store-panel"></section>
+        <section id="tab-store-VCDK" class="tab-panel store-panel"></section>
+        <section id="tab-store-HVP" class="tab-panel store-panel"></section>
+
+    </main>
+
+    <!-- LIGHTBOX MODAL FOR IMAGES -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Đóng hình ảnh">&times;</button>
+        <div class="lightbox-content-wrapper">
+            <img class="lightbox-content" id="lightbox-img" alt="Hình ảnh minh chứng">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="report_data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

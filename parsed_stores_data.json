@@ -1,0 +1,1079 @@
+{
+  "HVP": {
+    "metadata": {
+      "store": "LUSH HVP",
+      "visitDate": "7/1/2026",
+      "visitTime": "13h30",
+      "staffOnDuty": "2"
+    },
+    "kpi": {
+      "staff": "Staff",
+      "vmd": "VMD",
+      "storeroom": "Storeroom",
+      "tester": "Tester",
+      "stock": "Stock"
+    },
+    "vm": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Nhìn chung, tổng quan shop, sàn nhà có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Khu vực kệ trưng bày bath bomb/bubble bars có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Tất cả sản phẩm phải không có bụi, đặc biệt là các sản phẩm không bao bì.",
+          "score": "2"
+        },
+        {
+          "id": 4,
+          "question": "Tất cả các kệ trưng bày không có bụi, đặc biệt là các kệ đen",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Các vật trang trí nhỏ chậu cây, bình hoa có được vệ sinh thường xuyên và đặt đúng vị trí chưa?",
+          "score": "3"
+        },
+        {
+          "id": 6,
+          "question": "Các bước trong routine đã được sắp xếp hợp lý để dễ dàng liên kết với việc bán hàng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 7,
+          "question": "Các sản phẩm bán chạy nhất đã được trưng bày theo bố cục tam giác, với màu sắc phối hợp theo bánh xe màu chưa?",
+          "score": "3"
+        },
+        {
+          "id": 8,
+          "question": "Các thiết bị cần sửa chữa tại cửa hàng đã được báo cáo chưa?",
+          "score": "3"
+        },
+        {
+          "id": 9,
+          "question": "Đảm bảo tất cả TV luôn được bật và phát đúng nội dung video hàng tháng.",
+          "score": "3"
+        },
+        {
+          "id": 10,
+          "question": "Đảm bảo các sản phẩm gần hết hạn luôn được trưng bày theo nguyên tắc FIFO, đồng thời tránh hoặc giảm thiểu việc trưng bày các sản phẩm còn hạn sử dụng quá xa.",
+          "score": "3"
+        },
+        {
+          "id": 11,
+          "question": "Các hộp quà Knot Wrap đã được gói theo đúng hướng dẫn của LUSH chưa?",
+          "score": "3"
+        },
+        {
+          "id": 12,
+          "question": "Các sản phẩm push sale tại quầy thu ngân đã được lựa chọn phù hợp chưa?",
+          "score": "3"
+        },
+        {
+          "id": 13,
+          "question": "Tất cả bảng thông tin và giá sản phẩm cần thiết đã được trưng bày đầy đủ bằng font chữ Lush để đảm bảo truyền đạt thông tin rõ ràng và đầy đủ đến khách hàng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 14,
+          "question": "Thau bột, bàn FFM có ready chưa?",
+          "score": "3"
+        },
+        {
+          "id": 15,
+          "question": "Bồn nước, bồn rửa tay có sạch sẽ chưa?",
+          "score": "3"
+        }
+      ],
+      "total": "44",
+      "grade": "Good"
+    },
+    "storeroom": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Nhìn chung, kho hàng có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tất cả các thùng không sử dụng đã được niêm phong và dán nhãn bằng giấy A4 bên ngoài, thể hiện tên sản phẩm và số lượng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Các sản phẩm đã được đặt đúng khu vực quy định trong kho chưa?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Đã thiết lập khu vực riêng cho chai tester rỗng, văn phòng phẩm và sản phẩm vệ sinh chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Sản phẩm bulk nên được lưu trữ trong thùng carton lớn theo nguyên tắc sau: sản phẩm nhẹ đặt phía trên, sản phẩm nặng đặt phía dưới, hàng cũ đặt phía trước, hàng mới đặt phía sau, và các sản phẩm chưa sử dụng đặt sâu nhất bên trong.",
+          "score": "3"
+        }
+      ],
+      "total": "15",
+      "grade": "Good"
+    },
+    "tester": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Cửa hàng có cập nhật file nhập - xuất tester thường xuyên không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tất cả tester đã được dán nhãn tester, đóng dấu, ký xác nhận và ghi ngày bắt đầu sử dụng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Tất cả tester bị rơi/vỡ đã được thu hồi chưa? Nếu chưa, chúng có đang được thu gom và đặt đúng khu vực/tủ lưu trữ quy định không?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Tester có được vệ sinh sạch sẽ chưa?",
+          "score": "2"
+        },
+        {
+          "id": 5,
+          "question": "Tất cả sản phẩm phải có tester, trong đó các sản phẩm bán chạy cần còn ít nhất 1/3 dung lượng và các sản phẩm bán chậm cần còn ít nhất 1/2 dung lượng.",
+          "score": "2"
+        }
+      ],
+      "total": "13",
+      "grade": "Good"
+    },
+    "staff": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Đồng phục đúng guideline chưa?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tóc/ Makeup/ Bảng tên đúng chuẩn chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Thái độ tư vấn, tiếp cận khách hàng có đúng chuẩn chưa?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Có nắm vững kiến thức sản phẩm và link sale đúng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Đồ dùng cá nhân đặt trong kho có đúng quy định và gọn gàng chưa?",
+          "score": "3"
+        }
+      ],
+      "total": "15",
+      "grade": "Good"
+    },
+    "payment": [
+      {
+        "col0": "6/29/2026",
+        "col1": "-",
+        "col2": "3,325,000",
+        "col3": "3,325,000"
+      },
+      {
+        "col0": "",
+        "col1": "NA",
+        "col2": "NA",
+        "col3": "NA"
+      }
+    ],
+    "petty_cash": [
+      {
+        "time": "15h00",
+        "system": "2,000,000",
+        "cashier": "2,000,000",
+        "discrepancy": "-"
+      },
+      {
+        "time": "15h00",
+        "system": "2,350,000",
+        "cashier": "2,350,000",
+        "discrepancy": "-"
+      }
+    ],
+    "stock_check": [
+      {
+        "id": 1,
+        "code": "61415-00VU",
+        "name": "Kem g?i Tofu - 400g",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 2,
+        "code": "61007-00VU",
+        "name": "Kem d??ng da tay Sweet Wild Orange - 100g",
+        "system": "28",
+        "actual": "28",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 3,
+        "code": "5967-00VU",
+        "name": "D?u g?i Big - 640g",
+        "system": "9",
+        "actual": "9",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 4,
+        "code": "60539-00VU",
+        "name": "D?u x? d??ng tóc Glory Conditioner - 450g",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 5,
+        "code": "62178-00VU",
+        "name": "D?u x? d??ng tóc Violet Cream - 450g",
+        "system": "7",
+        "actual": "7",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 6,
+        "code": "2145-02VU",
+        "name": "Kem d??ng th? Karma Kream - 225g",
+        "system": "10",
+        "actual": "10",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 7,
+        "code": "0276-01VU",
+        "name": "Kem d??ng ?m Enzymion - 45g",
+        "system": "2",
+        "actual": "2",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 8,
+        "code": "3832-01VU",
+        "name": "Kem d??ng ??c tr? cho tóc và da ??u Balance - 225g",
+        "system": "7",
+        "actual": "7",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 9,
+        "code": "64600-00VU",
+        "name": "D?u g?i Super Milk - 490g",
+        "system": "12",
+        "actual": "12",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 10,
+        "code": "4429-00VU",
+        "name": "Bom t?m Minions - 170g",
+        "system": "20",
+        "actual": "20",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 11,
+        "code": "6826-00VU",
+        "name": "S?a t?m Rose Jam (T? b?o qu?n) - 500g",
+        "system": "23",
+        "actual": "23",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 12,
+        "code": "60865-01VU",
+        "name": "S?a t?m Good Karma...Everybody Needs Some - 540g",
+        "system": "26",
+        "actual": "26",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 13,
+        "code": "60802-00VU",
+        "name": "Kem t?o ki?u tóc Infra Wig - 100g",
+        "system": "4",
+        "actual": "4",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 14,
+        "code": "61780-00VU",
+        "name": "D?u x? d??ng tóc American Cream - 475g",
+        "system": "12",
+        "actual": "12",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 15,
+        "code": "7014-00VU",
+        "name": "S?a t?m Dirty Springwash - 280g",
+        "system": "28",
+        "actual": "28",
+        "gap": "0",
+        "remark": ""
+      }
+    ],
+    "comment": {
+      "green": "Nhân viên t? v?n t?t và link sale t?t, n?m v?ng ki?n th?c s?n ph?m\nC?a hàng v?n hành t?t\nKho hàng s?ch s?",
+      "red": "M?t s? tester ch?a ?úng quy ??nh và ch?a thay tester m?i\nM?t vài tester ch?a ???c v? sinh s?ch\nCòn b?i ? các k? tr?ng bày",
+      "remark": ""
+    }
+  },
+  "SGCT": {
+    "metadata": {
+      "store": "LUSH SGCT",
+      "visitDate": "6/29/2026",
+      "visitTime": "13h30",
+      "staffOnDuty": "4"
+    },
+    "kpi": {
+      "staff": "Staff",
+      "vmd": "VMD",
+      "storeroom": "Storeroom",
+      "tester": "Tester",
+      "stock": "Stock"
+    },
+    "vm": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Nhìn chung, tổng quan shop, sàn nhà có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Khu vực kệ trưng bày bath bomb/bubble bars có sạch sẽ không?",
+          "score": "2"
+        },
+        {
+          "id": 3,
+          "question": "Tất cả sản phẩm phải không có bụi, đặc biệt là các sản phẩm không bao bì.",
+          "score": "2"
+        },
+        {
+          "id": 4,
+          "question": "Tất cả các kệ trưng bày không có bụi, đặc biệt là các kệ đen",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Các vật trang trí nhỏ chậu cây, bình hoa có được vệ sinh thường xuyên và đặt đúng vị trí chưa?",
+          "score": "3"
+        },
+        {
+          "id": 6,
+          "question": "Các bước trong routine đã được sắp xếp hợp lý để dễ dàng liên kết với việc bán hàng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 7,
+          "question": "Các sản phẩm bán chạy nhất đã được trưng bày theo bố cục tam giác, với màu sắc phối hợp theo bánh xe màu chưa?",
+          "score": "3"
+        },
+        {
+          "id": 8,
+          "question": "Các thiết bị cần sửa chữa tại cửa hàng đã được báo cáo chưa?",
+          "score": "3"
+        },
+        {
+          "id": 9,
+          "question": "Đảm bảo tất cả TV luôn được bật và phát đúng nội dung video hàng tháng.",
+          "score": "3"
+        },
+        {
+          "id": 10,
+          "question": "Đảm bảo các sản phẩm gần hết hạn luôn được trưng bày theo nguyên tắc FIFO, đồng thời tránh hoặc giảm thiểu việc trưng bày các sản phẩm còn hạn sử dụng quá xa.",
+          "score": "3"
+        },
+        {
+          "id": 11,
+          "question": "Các hộp quà Knot Wrap đã được gói theo đúng hướng dẫn của LUSH chưa?",
+          "score": "3"
+        },
+        {
+          "id": 12,
+          "question": "Các sản phẩm push sale tại quầy thu ngân đã được lựa chọn phù hợp chưa?",
+          "score": "3"
+        },
+        {
+          "id": 13,
+          "question": "Tất cả bảng thông tin và giá sản phẩm cần thiết đã được trưng bày đầy đủ bằng font chữ Lush để đảm bảo truyền đạt thông tin rõ ràng và đầy đủ đến khách hàng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 14,
+          "question": "Thau bột, bàn FFM có ready chưa?",
+          "score": "3"
+        },
+        {
+          "id": 15,
+          "question": "Bồn nước, bồn rửa tay có sạch sẽ chưa?",
+          "score": "3"
+        }
+      ],
+      "total": "43",
+      "grade": "Good"
+    },
+    "storeroom": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Nhìn chung, kho hàng có sạch sẽ không?",
+          "score": "2"
+        },
+        {
+          "id": 2,
+          "question": "Tất cả các thùng không sử dụng đã được niêm phong và dán nhãn bằng giấy A4 bên ngoài, thể hiện tên sản phẩm và số lượng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Các sản phẩm đã được đặt đúng khu vực quy định trong kho chưa?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Đã thiết lập khu vực riêng cho chai tester rỗng, văn phòng phẩm và sản phẩm vệ sinh chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Sản phẩm bulk nên được lưu trữ trong thùng carton lớn theo nguyên tắc sau: sản phẩm nhẹ đặt phía trên, sản phẩm nặng đặt phía dưới, hàng cũ đặt phía trước, hàng mới đặt phía sau, và các sản phẩm chưa sử dụng đặt sâu nhất bên trong.",
+          "score": "3"
+        }
+      ],
+      "total": "14",
+      "grade": "Good"
+    },
+    "tester": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Cửa hàng có cập nhật file nhập - xuất tester thường xuyên không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tất cả tester đã được dán nhãn tester, đóng dấu, ký xác nhận và ghi ngày bắt đầu sử dụng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Tất cả tester bị rơi/vỡ đã được thu hồi chưa? Nếu chưa, chúng có đang được thu gom và đặt đúng khu vực/tủ lưu trữ quy định không?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Tester có được vệ sinh sạch sẽ chưa?",
+          "score": "2"
+        },
+        {
+          "id": 5,
+          "question": "Tất cả sản phẩm phải có tester, trong đó các sản phẩm bán chạy cần còn ít nhất 1/3 dung lượng và các sản phẩm bán chậm cần còn ít nhất 1/2 dung lượng.",
+          "score": "2"
+        }
+      ],
+      "total": "13",
+      "grade": "Good"
+    },
+    "staff": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Đồng phục đúng guideline chưa?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tóc/ Makeup/ Bảng tên đúng chuẩn chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Thái độ tư vấn, tiếp cận khách hàng có đúng chuẩn chưa?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Có nắm vững kiến thức sản phẩm và link sale đúng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Đồ dùng cá nhân đặt trong kho có đúng quy định và gọn gàng chưa?",
+          "score": "3"
+        }
+      ],
+      "total": "15",
+      "grade": "Good"
+    },
+    "payment": [
+      {
+        "col0": "6/29/2026",
+        "col1": "-",
+        "col2": "3,325,000",
+        "col3": "3,325,000"
+      },
+      {
+        "col0": "",
+        "col1": "NA",
+        "col2": "NA",
+        "col3": "NA"
+      }
+    ],
+    "petty_cash": [
+      {
+        "time": "15h00",
+        "system": "2,000,000",
+        "cashier": "2,000,000",
+        "discrepancy": "-"
+      },
+      {
+        "time": "15h00",
+        "system": "2,350,000",
+        "cashier": "2,350,000",
+        "discrepancy": "-"
+      }
+    ],
+    "stock_check": [
+      {
+        "id": 1,
+        "code": "61415-00VU",
+        "name": "Kem g?i Tofu - 400g",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 2,
+        "code": "61007-00VU",
+        "name": "Kem d??ng da tay Sweet Wild Orange - 100g",
+        "system": "28",
+        "actual": "28",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 3,
+        "code": "5967-00VU",
+        "name": "D?u g?i Big - 640g",
+        "system": "9",
+        "actual": "9",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 4,
+        "code": "60539-00VU",
+        "name": "D?u x? d??ng tóc Glory Conditioner - 450g",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 5,
+        "code": "62178-00VU",
+        "name": "D?u x? d??ng tóc Violet Cream - 450g",
+        "system": "7",
+        "actual": "7",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 6,
+        "code": "2145-02VU",
+        "name": "Kem d??ng th? Karma Kream - 225g",
+        "system": "10",
+        "actual": "10",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 7,
+        "code": "0276-01VU",
+        "name": "Kem d??ng ?m Enzymion - 45g",
+        "system": "2",
+        "actual": "2",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 8,
+        "code": "3832-01VU",
+        "name": "Kem d??ng ??c tr? cho tóc và da ??u Balance - 225g",
+        "system": "7",
+        "actual": "7",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 9,
+        "code": "64600-00VU",
+        "name": "D?u g?i Super Milk - 490g",
+        "system": "12",
+        "actual": "12",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 10,
+        "code": "4429-00VU",
+        "name": "Bom t?m Minions - 170g",
+        "system": "20",
+        "actual": "20",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 11,
+        "code": "6826-00VU",
+        "name": "S?a t?m Rose Jam (T? b?o qu?n) - 500g",
+        "system": "23",
+        "actual": "23",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 12,
+        "code": "60865-01VU",
+        "name": "S?a t?m Good Karma...Everybody Needs Some - 540g",
+        "system": "26",
+        "actual": "26",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 13,
+        "code": "60802-00VU",
+        "name": "Kem t?o ki?u tóc Infra Wig - 100g",
+        "system": "4",
+        "actual": "4",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 14,
+        "code": "61780-00VU",
+        "name": "D?u x? d??ng tóc American Cream - 475g",
+        "system": "12",
+        "actual": "12",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 15,
+        "code": "7014-00VU",
+        "name": "S?a t?m Dirty Springwash - 280g",
+        "system": "28",
+        "actual": "28",
+        "gap": "0",
+        "remark": ""
+      }
+    ],
+    "comment": {
+      "green": "Nhân viên t? v?n t?t và link sale t?t, n?m v?ng ki?n th?c s?n ph?m\nC?a hàng v?n hành t?t",
+      "red": "M?t s? tester ch?a ?úng quy ??nh và ch?a thay tester m?i\nCòn b?i ? các s?n ph?m ? khu v?c bath boom/bubble bar\nC?n chú ý s?p x?p l?i các v?t d?ng trong kho",
+      "remark": ""
+    }
+  },
+  "VCDK": {
+    "metadata": {
+      "store": "LUSH VCDK",
+      "visitDate": "6/30/2026",
+      "visitTime": "13h30",
+      "staffOnDuty": "5"
+    },
+    "kpi": {
+      "staff": "Staff",
+      "vmd": "VMD",
+      "storeroom": "Storeroom",
+      "tester": "Tester",
+      "stock": "Stock"
+    },
+    "vm": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Nhìn chung, tổng quan shop, sàn nhà có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Khu vực kệ trưng bày bath bomb/bubble bars có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Tất cả sản phẩm phải không có bụi, đặc biệt là các sản phẩm không bao bì.",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Tất cả các kệ trưng bày không có bụi, đặc biệt là các kệ đen",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Các vật trang trí nhỏ chậu cây, bình hoa có được vệ sinh thường xuyên và đặt đúng vị trí chưa?",
+          "score": "3"
+        },
+        {
+          "id": 6,
+          "question": "Các bước trong routine đã được sắp xếp hợp lý để dễ dàng liên kết với việc bán hàng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 7,
+          "question": "Các sản phẩm bán chạy nhất đã được trưng bày theo bố cục tam giác, với màu sắc phối hợp theo bánh xe màu chưa?",
+          "score": "3"
+        },
+        {
+          "id": 8,
+          "question": "Các thiết bị cần sửa chữa tại cửa hàng đã được báo cáo chưa?",
+          "score": "3"
+        },
+        {
+          "id": 9,
+          "question": "Đảm bảo tất cả TV luôn được bật và phát đúng nội dung video hàng tháng.",
+          "score": "3"
+        },
+        {
+          "id": 10,
+          "question": "Đảm bảo các sản phẩm gần hết hạn luôn được trưng bày theo nguyên tắc FIFO, đồng thời tránh hoặc giảm thiểu việc trưng bày các sản phẩm còn hạn sử dụng quá xa.",
+          "score": "3"
+        },
+        {
+          "id": 11,
+          "question": "Các hộp quà Knot Wrap đã được gói theo đúng hướng dẫn của LUSH chưa?",
+          "score": "3"
+        },
+        {
+          "id": 12,
+          "question": "Các sản phẩm push sale tại quầy thu ngân đã được lựa chọn phù hợp chưa?",
+          "score": "3"
+        },
+        {
+          "id": 13,
+          "question": "Tất cả bảng thông tin và giá sản phẩm cần thiết đã được trưng bày đầy đủ bằng font chữ Lush để đảm bảo truyền đạt thông tin rõ ràng và đầy đủ đến khách hàng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 14,
+          "question": "Thau bột, bàn FFM có ready chưa?",
+          "score": "2"
+        },
+        {
+          "id": 15,
+          "question": "Bồn nước, bồn rửa tay có sạch sẽ chưa?",
+          "score": "3"
+        }
+      ],
+      "total": "44",
+      "grade": "Good"
+    },
+    "storeroom": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Nhìn chung, kho hàng có sạch sẽ không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tất cả các thùng không sử dụng đã được niêm phong và dán nhãn bằng giấy A4 bên ngoài, thể hiện tên sản phẩm và số lượng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Các sản phẩm đã được đặt đúng khu vực quy định trong kho chưa?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Đã thiết lập khu vực riêng cho chai tester rỗng, văn phòng phẩm và sản phẩm vệ sinh chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Sản phẩm bulk nên được lưu trữ trong thùng carton lớn theo nguyên tắc sau: sản phẩm nhẹ đặt phía trên, sản phẩm nặng đặt phía dưới, hàng cũ đặt phía trước, hàng mới đặt phía sau, và các sản phẩm chưa sử dụng đặt sâu nhất bên trong.",
+          "score": "3"
+        }
+      ],
+      "total": "15",
+      "grade": "Good"
+    },
+    "tester": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Cửa hàng có cập nhật file nhập - xuất tester thường xuyên không?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tất cả tester đã được dán nhãn tester, đóng dấu, ký xác nhận và ghi ngày bắt đầu sử dụng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Tất cả tester bị rơi/vỡ đã được thu hồi chưa? Nếu chưa, chúng có đang được thu gom và đặt đúng khu vực/tủ lưu trữ quy định không?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Tester có được vệ sinh sạch sẽ chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Tất cả sản phẩm phải có tester, trong đó các sản phẩm bán chạy cần còn ít nhất 1/3 dung lượng và các sản phẩm bán chậm cần còn ít nhất 1/2 dung lượng.",
+          "score": "2"
+        }
+      ],
+      "total": "14",
+      "grade": "Good"
+    },
+    "staff": {
+      "items": [
+        {
+          "id": 1,
+          "question": "Đồng phục đúng guideline chưa?",
+          "score": "3"
+        },
+        {
+          "id": 2,
+          "question": "Tóc/ Makeup/ Bảng tên đúng chuẩn chưa?",
+          "score": "3"
+        },
+        {
+          "id": 3,
+          "question": "Thái độ tư vấn, tiếp cận khách hàng có đúng chuẩn chưa?",
+          "score": "3"
+        },
+        {
+          "id": 4,
+          "question": "Có nắm vững kiến thức sản phẩm và link sale đúng chưa?",
+          "score": "3"
+        },
+        {
+          "id": 5,
+          "question": "Đồ dùng cá nhân đặt trong kho có đúng quy định và gọn gàng chưa?",
+          "score": "3"
+        }
+      ],
+      "total": "15",
+      "grade": "Good"
+    },
+    "payment": [
+      {
+        "col0": "6/29/2026",
+        "col1": "6,102,000",
+        "col2": "4,305,000",
+        "col3": "(1,797,000)"
+      },
+      {
+        "col0": "",
+        "col1": "NA",
+        "col2": "NA",
+        "col3": "NA"
+      }
+    ],
+    "petty_cash": [
+      {
+        "time": "15h00",
+        "system": "195,000",
+        "cashier": "195,000",
+        "discrepancy": "-"
+      },
+      {
+        "time": "15h00",
+        "system": "748,000",
+        "cashier": "748,000",
+        "discrepancy": "-"
+      }
+    ],
+    "stock_check": [
+      {
+        "id": 1,
+        "code": "63236-00VU",
+        "name": "D?u x? d??ng tóc Candy Rain - 450g",
+        "system": "11",
+        "actual": "11",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 2,
+        "code": "64758GVN",
+        "name": "X?t th?m toàn thân Super Milk - 50ml",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 3,
+        "code": "64936-00VU",
+        "name": "D?u d??ng tóc và râu Dirty - 30ml",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 4,
+        "code": "63256-00VU",
+        "name": "Kem ?ánh r?ng Plaque Sabbath - 60g",
+        "system": "12",
+        "actual": "12",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 5,
+        "code": "4691-00VU",
+        "name": "Bom t?m Up, Up And Away - 90g",
+        "system": "8",
+        "actual": "8",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 6,
+        "code": "64603-00VU",
+        "name": "D?u x? d??ng tóc Super Milk - 230g",
+        "system": "16",
+        "actual": "16",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 7,
+        "code": "63233-00VU",
+        "name": "D?u x? d??ng tóc Valkyrie - 450g",
+        "system": "1",
+        "actual": "1",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 8,
+        "code": "64040-00VU",
+        "name": "M?t n? Beauty Sleep - 315g",
+        "system": "1",
+        "actual": "1",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 9,
+        "code": "4934-00VU",
+        "name": "Viên ngâm chân Put The Boot In - 115g",
+        "system": "4",
+        "actual": "4",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 10,
+        "code": "63798-00VU",
+        "name": "Kem d??ng th? Super Fairy - 225g",
+        "system": "3",
+        "actual": "3",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 11,
+        "code": "63183-00VU",
+        "name": "Kem r?a m?t Mostly - 225g",
+        "system": "14",
+        "actual": "14",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 12,
+        "code": "63148VN",
+        "name": "X?t th?m toàn thân Sticky Dates - 200g",
+        "system": "11",
+        "actual": "11",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 13,
+        "code": "63164-00VU",
+        "name": "B? d??ng th? Braziliant - 225g",
+        "system": "11",
+        "actual": "11",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 14,
+        "code": "62549-00VU",
+        "name": "D?u g?i Swell - 300g",
+        "system": "4",
+        "actual": "4",
+        "gap": "0",
+        "remark": ""
+      },
+      {
+        "id": 15,
+        "code": "3382-01VU",
+        "name": "Kem d??ng th? Karma Kream - 100g",
+        "system": "3",
+        "actual": "3",
+        "gap": "0",
+        "remark": ""
+      }
+    ],
+    "comment": {
+      "green": "V?n hành c?a hàng t?t\nNhân s? n?m v?ng ki?n th?c s?n ph?m, t? v?n nhi?t tình và link sale t?t\nKho d?n s?ch s? và cây trang trí ?ã ???c ch?m sóc t?t h?n",
+      "red": "M?t s? k? v?n còn b?i b?n\nM?t vài tester v?n ch?a ?úng quy chu?n",
+      "remark": ""
+    }
+  }
+}
