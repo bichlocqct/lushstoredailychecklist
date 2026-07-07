@@ -281,76 +281,78 @@ document.addEventListener('DOMContentLoaded', () => {
             redList.appendChild(li);
         });
 
-        // Overall Red Point Uploaders
+        // Overall Red Point Uploaders (if elements exist in HTML)
         const uploaderGrid = document.getElementById('overall-red-uploader');
         const printImagesGrid = document.getElementById('print-overall-red-images');
-        uploaderGrid.innerHTML = '';
-        printImagesGrid.innerHTML = '';
+        if (uploaderGrid && printImagesGrid) {
+            uploaderGrid.innerHTML = '';
+            printImagesGrid.innerHTML = '';
 
-        overall.red_points.forEach((point, idx) => {
-            const storageKey = `lush_img_${activeWeekId}_overall_red_${idx}`;
-            
-            // Create Uploader Box
-            const uploadBox = document.createElement('div');
-            uploadBox.className = 'overall-upload-box';
-            uploadBox.innerHTML = `
-                <div class="uploader-placeholder" id="ph-${storageKey}">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    <span>Ảnh ${idx + 1}</span>
-                </div>
-                <input type="file" accept="image/*" class="uploader-input" data-key="${storageKey}" data-title="Ảnh ${idx + 1}: ${point}">
-                <div class="uploader-preview" id="prev-${storageKey}">
-                    <img src="" id="img-${storageKey}" alt="Minh chứng">
-                    <button class="uploader-delete" data-key="${storageKey}">&times;</button>
-                </div>
-            `;
-            uploaderGrid.appendChild(uploadBox);
-            
-            // Handle image load if it exists in Supabase or local storage
-            const savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
-            if (savedImg) {
-                const imgEl = uploadBox.querySelector(`#img-${storageKey}`);
-                const prevEl = uploadBox.querySelector(`#prev-${storageKey}`);
-                const phEl = uploadBox.querySelector(`#ph-${storageKey}`);
+            overall.red_points.forEach((point, idx) => {
+                const storageKey = `lush_img_${activeWeekId}_overall_red_${idx}`;
                 
-                imgEl.src = savedImg;
-                prevEl.style.display = 'block';
-                phEl.style.display = 'none';
-                
-                // Print container
-                const printWrap = document.createElement('div');
-                printWrap.className = 'print-image-wrap';
-                printWrap.innerHTML = `
-                    <img src="${savedImg}" alt="Minh chứng">
-                    <span>Ảnh ${idx + 1}: Cần cải thiện</span>
+                // Create Uploader Box
+                const uploadBox = document.createElement('div');
+                uploadBox.className = 'overall-upload-box';
+                uploadBox.innerHTML = `
+                    <div class="uploader-placeholder" id="ph-${storageKey}">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <span>Ảnh ${idx + 1}</span>
+                    </div>
+                    <input type="file" accept="image/*" class="uploader-input" data-key="${storageKey}" data-title="Ảnh ${idx + 1}: ${point}">
+                    <div class="uploader-preview" id="prev-${storageKey}">
+                        <img src="" id="img-${storageKey}" alt="Minh chứng">
+                        <button class="uploader-delete" data-key="${storageKey}">&times;</button>
+                    </div>
                 `;
-                printImagesGrid.appendChild(printWrap);
-            }
-        });
-
-        // Set up input events for Overall Uploaders
-        uploaderGrid.querySelectorAll('.uploader-input').forEach(input => {
-            input.addEventListener('change', (e) => {
-                handleImageUpload(e.target, () => loadWeekData(activeWeekId));
+                uploaderGrid.appendChild(uploadBox);
+                
+                // Handle image load if it exists in Supabase or local storage
+                const savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
+                if (savedImg) {
+                    const imgEl = uploadBox.querySelector(`#img-${storageKey}`);
+                    const prevEl = uploadBox.querySelector(`#prev-${storageKey}`);
+                    const phEl = uploadBox.querySelector(`#ph-${storageKey}`);
+                    
+                    imgEl.src = savedImg;
+                    prevEl.style.display = 'block';
+                    phEl.style.display = 'none';
+                    
+                    // Print container
+                    const printWrap = document.createElement('div');
+                    printWrap.className = 'print-image-wrap';
+                    printWrap.innerHTML = `
+                        <img src="${savedImg}" alt="Minh chứng">
+                        <span>Ảnh ${idx + 1}: Cần cải thiện</span>
+                    `;
+                    printImagesGrid.appendChild(printWrap);
+                }
             });
-        });
 
-        uploaderGrid.querySelectorAll('.uploader-delete').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const key = btn.getAttribute('data-key');
-                deleteImage(key, () => loadWeekData(activeWeekId));
+            // Set up input events for Overall Uploaders
+            uploaderGrid.querySelectorAll('.uploader-input').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    handleImageUpload(e.target, () => loadWeekData(activeWeekId));
+                });
             });
-        });
 
-        // Setup image click to open lightbox
-        uploaderGrid.querySelectorAll('.uploader-preview img').forEach(img => {
-            img.addEventListener('click', () => {
-                const input = img.closest('.overall-upload-box').querySelector('.uploader-input');
-                const title = input.getAttribute('data-title');
-                openLightbox(img.src, title);
+            uploaderGrid.querySelectorAll('.uploader-delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const key = btn.getAttribute('data-key');
+                    deleteImage(key, () => loadWeekData(activeWeekId));
+                });
             });
-        });
+
+            // Setup image click to open lightbox
+            uploaderGrid.querySelectorAll('.uploader-preview img').forEach(img => {
+                img.addEventListener('click', () => {
+                    const input = img.closest('.overall-upload-box').querySelector('.uploader-input');
+                    const title = input.getAttribute('data-title');
+                    openLightbox(img.src, title);
+                });
+            });
+        }
 
         // Render Proposed Actions (Section 5)
         const proposedBody = document.getElementById('proposed-actions-body');
