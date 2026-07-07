@@ -478,8 +478,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">STT</th>
-                                        <th style="width: 85%;">Tiêu Chí Đánh Giá Visual Merchandising</th>
+                                        <th style="width: 60%;">Tiêu Chí Đánh Giá Visual Merchandising</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -507,8 +508,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">STT</th>
-                                        <th style="width: 85%;">Tiêu Chí Đánh Giá Kho Hàng</th>
+                                        <th style="width: 60%;">Tiêu Chí Đánh Giá Kho Hàng</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -536,8 +538,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">STT</th>
-                                        <th style="width: 85%;">Tiêu Chí Đánh Giá Tester</th>
+                                        <th style="width: 60%;">Tiêu Chí Đánh Giá Tester</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -565,8 +568,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <thead>
                                     <tr>
                                         <th style="width: 5%; text-align: center;">STT</th>
-                                        <th style="width: 85%;">Tiêu Chí Đánh Giá Nhân Sự</th>
+                                        <th style="width: 60%;">Tiêu Chí Đánh Giá Nhân Sự</th>
                                         <th style="width: 10%; text-align: center;">Điểm Số</th>
+                                        <th class="no-print" style="width: 25%; text-align: center;">Remark</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -687,27 +691,46 @@ document.addEventListener('DOMContentLoaded', () => {
         bindUploaderEvents(storeKey);
     }
 
-    // Helper: render checklist rows with score classes
+    // Helper: render checklist rows with score classes and image uploaders
     function renderChecklistRows(storeKey, section, items) {
         let html = '';
         items.forEach(item => {
             const scoreNum = parseInt(item.score);
             const isRed = scoreNum < 3;
             const trClass = isRed ? 'class="highlight-red"' : '';
+            const storageKey = `lush_img_${activeWeekId}_${storeKey}_${section}_${item.id}`;
+            const savedImg = dbImages[storageKey] || localStorage.getItem(storageKey);
             
-            let imgHtml = '';
-            if (storeKey === 'SGCT' && section === 'vm' && item.id === 2) {
-                imgHtml = `
-                    <div class="static-image-preview no-print" style="margin-top: 8px;">
-                        <img src="sgct_vm_2.png" alt="Minh chứng" class="zoomable-static-img" data-title="Saigon Center [VMD] Câu 2: Khu vực kệ trưng bày bath bomb/bubble bars có sạch sẽ không?" style="max-width: 120px; border: 1px solid var(--color-gray-medium); cursor: pointer; display: block; transition: var(--transition-smooth);">
-                    </div>
-                    <div class="print-images-container only-print" style="margin-top: 6px;">
-                        <div class="print-image-wrap">
-                            <img src="sgct_vm_2.png" alt="Minh chứng">
-                            <span>Ảnh câu 2: Khu vực kệ trưng bày bath bomb/bubble bars</span>
+            let uploaderHtml = '';
+            let printImgHtml = '';
+            
+            if (isRed) {
+                uploaderHtml = `
+                    <div class="uploader-container" id="container-${storageKey}">
+                        <div class="uploader-placeholder" id="ph-${storageKey}" ${savedImg ? 'style="display:none;"' : ''}>
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                            <span>Chèn ảnh</span>
+                        </div>
+                        <input type="file" accept="image/*" class="uploader-input store-uploader" data-key="${storageKey}" data-title="${storeKey} [${section.toUpperCase()}] Câu ${item.id}">
+                        <div class="uploader-preview" id="prev-${storageKey}" ${savedImg ? 'style="display:block;"' : ''}>
+                            <img src="${savedImg || ''}" id="img-${storageKey}" alt="Minh chứng">
+                            <button class="uploader-delete store-delete" data-key="${storageKey}">&times;</button>
                         </div>
                     </div>
                 `;
+                
+                if (savedImg) {
+                    printImgHtml = `
+                        <div class="print-images-container only-print" style="margin-top:6px;">
+                            <div class="print-image-wrap">
+                                <img src="${savedImg}" alt="Minh chứng">
+                                <span>Ảnh câu ${item.id}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                uploaderHtml = `<span style="color:var(--color-gray-medium); font-size:11px;">Đạt Chuẩn</span>`;
             }
             
             html += `
@@ -715,10 +738,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td class="text-center" style="font-weight:600;">${item.id}</td>
                     <td style="font-size: 13.5px;">
                         ${item.question}
-                        ${imgHtml}
+                        ${printImgHtml}
                     </td>
                     <td class="text-center">
                         <span class="badge ${isRed ? 'badge-poor' : 'badge-good'}">${item.score}/3</span>
+                    </td>
+                    <td class="no-print uploader-cell">
+                        ${uploaderHtml}
                     </td>
                 </tr>
             `;
