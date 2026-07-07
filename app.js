@@ -646,7 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="accordion-item expanded" data-section="remarks">
                     <div class="accordion-header">
                         <div class="accordion-title-area">
-                            <h3>Đánh Giá Chi Tiết Từ Kiểm Tra Viên</h3>
+                            <h3>Đánh giá chi tiết</h3>
                         </div>
                         <div class="accordion-score-summary">
                             <svg class="accordion-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
