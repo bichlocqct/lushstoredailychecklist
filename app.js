@@ -91,16 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Print Action
-        btnPrint.addEventListener('click', () => {
-            window.print();
-        });
+        if (btnPrint) {
+            btnPrint.addEventListener('click', () => {
+                window.print();
+            });
+        }
 
         // Reset Action (Clear Images)
-        btnReset.addEventListener('click', () => {
-            if (confirm('Bạn có chắc chắn muốn xóa toàn bộ hình ảnh đã tải lên không?')) {
-                clearAllWeekImages();
-            }
-        });
+        if (btnReset) {
+            btnReset.addEventListener('click', () => {
+                if (confirm('Bạn có chắc chắn muốn xóa toàn bộ hình ảnh đã tải lên không?')) {
+                    clearAllWeekImages();
+                }
+            });
+        }
 
         // Lightbox Close
         lightboxClose.addEventListener('click', closeLightbox);
