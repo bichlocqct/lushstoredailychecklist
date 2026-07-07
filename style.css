@@ -436,6 +436,7 @@ p, li, td, th {
 .card {
     background-color: var(--color-white);
     border: 1px solid var(--color-gray-light);
+    border-left: 4px solid var(--color-black);
     margin-bottom: 24px;
     transition: var(--transition-smooth);
 }
@@ -445,21 +446,25 @@ p, li, td, th {
 }
 
 .section-header {
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--color-black);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 14px 20px;
+    margin: -24px -24px 20px -24px;
+    border-bottom: none;
 }
 
 .section-header h2 {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    color: var(--color-white);
+    margin: 0;
 }
 
 .text-block p {
     margin-bottom: 12px;
-    color: var(--color-charcoal);
+    color: var(--color-black);
     font-size: 14.5px;
     text-align: justify;
 }
@@ -474,7 +479,7 @@ p, li, td, th {
 }
 
 .green-card .section-header {
-    border-bottom-color: var(--color-green);
+    border-bottom: none;
 }
 
 .red-card {
@@ -482,7 +487,7 @@ p, li, td, th {
 }
 
 .red-card .section-header {
-    border-bottom-color: var(--color-red);
+    border-bottom: none;
 }
 
 /* LISTS */
@@ -980,6 +985,18 @@ p, li, td, th {
     justify-content: flex-end;
     gap: 10px;
     margin-bottom: 20px;
+}
+
+.store-controls .btn-secondary {
+    color: var(--color-black) !important;
+    border-color: var(--color-black) !important;
+    background-color: transparent !important;
+}
+
+.store-controls .btn-secondary:hover {
+    background-color: var(--color-black) !important;
+    color: var(--color-white) !important;
+    border-color: var(--color-black) !important;
 }
 
 .btn-sm {
