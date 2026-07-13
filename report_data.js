@@ -913,7 +913,7 @@ const REPORT_DATA = {
         },
         {
           "id": 14,
-          "question": "Thau bột, bàn FFM có ready chưa?",
+          "question": "Thau bột, bàn FFM có ready chưa? (Không có topping)",
           "score": "2"
         },
         {
