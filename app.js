@@ -711,6 +711,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!savedImg && storeKey === 'SGCT' && section === 'storeroom' && item.id === 1) {
                 savedImg = 'sgct_storeroom_1.jpg';
             }
+            if (!savedImg && storeKey === 'SGCT' && section === 'tester' && item.id === 4) {
+                savedImg = 'sgct_tester_4.jpg';
+            }
             
             let uploaderHtml = '';
             let printImgHtml = '';
