@@ -732,6 +732,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!savedImg && storeKey === 'HVP' && section === 'tester' && item.id === 4) {
                 savedImg = 'hvp_tester_4.jpg';
             }
+            if (!savedImg && storeKey === 'HVP' && section === 'tester' && item.id === 5) {
+                savedImg = 'hvp_tester_5.jpg';
+            }
             
             let uploaderHtml = '';
             let printImgHtml = '';
